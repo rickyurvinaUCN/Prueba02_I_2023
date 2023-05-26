@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,7 @@ import com.example.prueba02.databinding.FragmentSecondBinding;
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
+    private EditText txt_navigate;
 
     @Override
     public View onCreateView(
@@ -22,11 +24,6 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        //HACER LA CODIFICACION NECESARIA PARA QUE
-        // EXISTA UN INPUT DE TEXTO Y CUANDO EL USUARIO DA
-        // CLIC SOBRE NAVEGAR LA APLICACION VAYA AL ACTIVITYCRUD Y
-        // CUANDO SE MUESTRE CORRECTAMENTE EL ACTIVITYCRUD MUESTRE UN T
-        // OAST CON EL TEXTO QUE ENVIO DESDE EL INPUT DE ESTE FRAGMENT
         binding = FragmentSecondBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
@@ -34,6 +31,7 @@ public class SecondFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        txt_navigate=(EditText)binding.txtNavigate;
 
         binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +55,9 @@ public class SecondFragment extends Fragment {
         binding = null;
     }
 
-    public void navigate(){
-        Intent i= new Intent(this.getContext(), ActivityCrud.class);
+    public void navigate() {
+        Intent i = new Intent(this.getContext(), ActivityCrud.class);
+        i.putExtra("message",txt_navigate.getText().toString());
         startActivity(i);
     }
 

@@ -14,27 +14,27 @@ public class Form {
         this.id = id;
     }
 
-    public String getcode() {
+    public String getCode() {
         return code;
     }
 
-    public void setcode(String code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
-    public String getname() {
+    public String getName() {
         return name;
     }
 
-    public void setname(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getdescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setdescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 }
